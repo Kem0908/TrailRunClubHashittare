@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHINSHU PEAK RUNNERS | トレイルランニングクラブ</title>
-  <meta name="description" content="自然を駆け抜け、仲間と繋がるトレイルランニングクラブの公式サイトです。初心者から経験者まで歓迎！">
+  <title>トレランクラブ【走ったれ】| 長野県・信州トレイルランニングクラブ</title>
+  <meta name="description" content="長野県（北信・中信・東信・北アルプス周辺・長野市里山）を中心に活動するトレランクラブ【走ったれ】の公式サイト。土曜・日曜朝6時からの犀川河川敷練や月1〜2回のトレイルランを開催中！">
   
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: 日本語用のNoto Sans JP と 英語・数字用のMontserrat -->
+  <!-- Google Fonts: Noto Sans JP と Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -25,13 +25,14 @@
           },
           colors: {
             forest: {
-              900: '#14261c',
-              800: '#1c3527',
-              700: '#264735',
-              100: '#e8f0ec',
+              900: '#1B4332',
+              800: '#24553F',
+              700: '#2D6A4F',
+              100: '#E8F3EE',
             },
-            accent: 'var(--theme-accent, #e05a2b)',
-            'accent-hover': 'var(--theme-accent-hover, #c4491e)',
+            ridge: '#1E293B',
+            accent: 'var(--theme-accent, #EA580C)',
+            'accent-hover': 'var(--theme-accent-hover, #C2410C)',
           }
         }
       }
@@ -40,13 +41,13 @@
 
   <style>
     :root {
-      --theme-accent: #e05a2b;       /* デフォルトのトレイルオレンジ */
-      --theme-accent-hover: #c4491e;
+      --theme-accent: #EA580C;       /* パッションオレンジ */
+      --theme-accent-hover: #C2410C;
     }
 
     body {
-      background-color: #f8f9f8;
-      color: #1f2937;
+      background-color: #F8FAFC;
+      color: #1E293B;
       overflow-x: hidden;
     }
 
@@ -54,17 +55,28 @@
     .hero-overlay {
       background: linear-gradient(
         to bottom,
-        rgba(20, 38, 28, 0.65) 0%,
-        rgba(20, 38, 28, 0.45) 50%,
-        rgba(20, 38, 28, 0.85) 100%
+        rgba(27, 67, 50, 0.72) 0%,
+        rgba(30, 41, 59, 0.50) 50%,
+        rgba(27, 67, 50, 0.88) 100%
       );
     }
 
     /* 地形図風の微細な背景パターン */
     .topo-pattern {
-      background-color: #14261c;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-color: #1B4332;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
       background-size: 24px 24px;
+    }
+
+    /* チェックボックスアニメーション */
+    .gear-checkbox:checked + div {
+      background-color: #FFF7ED;
+      border-color: var(--theme-accent, #EA580C);
+    }
+    .gear-checkbox:checked + div .gear-check-icon {
+      background-color: var(--theme-accent, #EA580C);
+      border-color: var(--theme-accent, #EA580C);
+      color: white;
     }
 
     /* スクロールバーのカスタマイズ */
@@ -72,10 +84,10 @@
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #f1f1f1;
+      background: #F1F5F9;
     }
     ::-webkit-scrollbar-thumb {
-      background: #264735;
+      background: #2D6A4F;
       border-radius: 4px;
     }
   </style>
@@ -85,36 +97,37 @@
   <!-- =====================================================================
        1. ナビゲーションバー (Sticky Header)
   ====================================================================== -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-forest-900/90 backdrop-blur-md text-white border-b border-white/10">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-forest-900/95 backdrop-blur-md text-white border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-20">
         <!-- クラブ名・ロゴ -->
-        <a href="#" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 rounded-lg bg-accent flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-            <!-- 山とトレイルのSVGアイコン -->
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7" />
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform shrink-0">
+            <!-- 山岳とトレイルのSVGアイコン -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 19h18L14 6l-4 7-3-4-4 10z" />
             </svg>
           </div>
           <div>
-            <span id="nav-club-name" class="font-display font-extrabold text-lg sm:text-xl tracking-wider block leading-none">SHINSHU PEAK RUNNERS</span>
-            <span id="nav-club-sub" class="text-[10px] sm:text-xs text-gray-300 tracking-widest block mt-0.5">TRAIL RUNNING CLUB</span>
+            <span id="nav-club-name" class="font-sans font-black text-base sm:text-xl tracking-tight block leading-none">トレランクラブ【走ったれ】</span>
+            <span id="nav-club-sub" class="font-display text-[10px] sm:text-xs text-emerald-200 tracking-widest block mt-1">SHINSHU / NAGANO TRAIL RUNNING CLUB</span>
           </div>
         </a>
 
         <!-- PC用ナビゲーションリンク -->
-        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-          <a href="#about" class="text-gray-200 hover:text-white transition-colors">クラブについて</a>
-          <a href="#schedule" class="text-gray-200 hover:text-white transition-colors">イベント日程</a>
-          <a href="#courses" class="text-gray-200 hover:text-white transition-colors">活動コース</a>
-          <a href="#faq" class="text-gray-200 hover:text-white transition-colors">参加の流れ・Q&A</a>
+        <nav class="hidden lg:flex items-center space-x-7 text-sm font-bold">
+          <a href="#about" class="text-gray-200 hover:text-white transition-colors">走ったれとは</a>
+          <a href="#schedule" class="text-gray-200 hover:text-white transition-colors">活動スケジュール</a>
+          <a href="#gear" class="text-gray-200 hover:text-white transition-colors">必須装備リスト</a>
+          <a href="#courses" class="text-gray-200 hover:text-white transition-colors">活動フィールド</a>
+          <a href="#faq" class="text-gray-200 hover:text-white transition-colors">Q&A</a>
           <a href="#contact" class="bg-accent hover:bg-accent-hover text-white px-5 py-2.5 rounded-full font-bold shadow-lg transition-all transform hover:-translate-y-0.5">
             体験参加・お問い合わせ
           </a>
         </nav>
 
         <!-- モバイル用ハンバーガーボタン -->
-        <button id="mobile-menu-btn" aria-label="メニューを開く" class="md:hidden p-2 rounded-lg text-gray-200 hover:text-white hover:bg-white/10 focus:outline-none">
+        <button id="mobile-menu-btn" aria-label="メニューを開く" class="lg:hidden p-2 rounded-lg text-gray-200 hover:text-white hover:bg-white/10 focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -124,11 +137,12 @@
     </div>
 
     <!-- モバイル用ドロワーメニュー -->
-    <div id="mobile-menu" class="hidden md:hidden bg-forest-900 border-t border-white/10 px-4 pt-3 pb-6 space-y-2 shadow-2xl">
-      <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">クラブについて</a>
-      <a href="#schedule" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">イベント日程</a>
-      <a href="#courses" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">活動コース</a>
-      <a href="#faq" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">参加の流れ・Q&A</a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-forest-900 border-t border-white/10 px-4 pt-3 pb-6 space-y-2 shadow-2xl">
+      <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-bold text-gray-200 hover:bg-white/10 hover:text-white">走ったれとは</a>
+      <a href="#schedule" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-bold text-gray-200 hover:bg-white/10 hover:text-white">活動スケジュール</a>
+      <a href="#gear" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-bold text-gray-200 hover:bg-white/10 hover:text-white">必須装備リスト</a>
+      <a href="#courses" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-bold text-gray-200 hover:bg-white/10 hover:text-white">活動フィールド</a>
+      <a href="#faq" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-bold text-gray-200 hover:bg-white/10 hover:text-white">Q&A</a>
       <div class="pt-2">
         <a href="#contact" class="mobile-nav-link block w-full text-center bg-accent hover:bg-accent-hover text-white px-5 py-3 rounded-xl font-bold shadow-md">
           体験参加・お問い合わせ
@@ -144,45 +158,50 @@
     <!-- 背景画像 -->
     <img id="hero-bg-img" 
          src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1920&q=80" 
-         alt="山岳トレイルを走るランナー" 
-         onerror="this.src='https://placehold.co/1920x1080/14261c/ffffff?text=TRAIL+RUNNING+CLUB'"
+         alt="信州の山岳トレイルを走るランナー" 
+         onerror="this.src='https://placehold.co/1920x1080/1B4332/ffffff?text=HASHITTARE+TRAIL+CLUB'"
          class="absolute inset-0 w-full h-full object-cover object-center scale-105 transition-transform duration-1000">
     
-    <!-- 暗めのオーバーレイ -->
+    <!-- グラデーションオーバーレイ -->
     <div class="absolute inset-0 hero-overlay"></div>
 
     <!-- コンテンツ -->
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-12">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-xs sm:text-sm font-semibold tracking-wider mb-6">
-        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-        <span id="hero-badge">新規メンバー・体験ラン参加者 募集中！</span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-xs sm:text-sm font-bold tracking-wider mb-6">
+        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
+        <span id="hero-badge">信州・長野のトレイルランクラブ｜新規メンバー随時募集中！</span>
       </div>
 
       <h1 id="hero-tagline" class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight mb-6 drop-shadow-md">
-        アスファルトを飛び出し、<br class="hidden sm:inline">まだ見ぬ稜線へ。
+        信州の山を、仲間と走ったれ！
       </h1>
 
-      <p id="hero-subtagline" class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-200 font-normal leading-relaxed mb-10">
-        週末の朝、澄んだ空気と絶景を求めて山を駆けるトレイルランニングクラブ。<br class="hidden sm:inline">
-        初心者向けのファンランからロングレース対策まで、仲間と一緒に楽しもう。
+      <p id="hero-subtagline" class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-100 font-medium leading-relaxed mb-8">
+        長野県（北信・中信・東信・北アルプス周辺・長野市里山）を駆け巡るトレイルランニングクラブ。<br class="hidden sm:inline">
+        週末朝6時の犀川河川敷ランから、絶景・トレイルグルメ・レース完走まで、初心者も経験者も和気あいあいと楽しんでいます！
       </p>
+
+      <!-- 活動エリアバッジ群 -->
+      <div id="hero-areas" class="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-2xl mx-auto">
+        <!-- JSで動的に描画 -->
+      </div>
 
       <!-- CTAボタン群 -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#schedule" class="w-full sm:w-auto px-8 py-4 rounded-full bg-accent hover:bg-accent-hover text-white font-bold text-base sm:text-lg shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
-          <span>次回イベントを見る</span>
+          <span>活動スケジュールを見る</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </a>
-        <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white font-bold text-base sm:text-lg transition-all flex items-center justify-center">
-          クラブについて知る
+        <a href="#gear" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white font-bold text-base sm:text-lg transition-all flex items-center justify-center">
+          必須装備・参加ルールを確認
         </a>
       </div>
     </div>
 
     <!-- 下部スクロール促進インジケーター -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 flex flex-col items-center gap-1 animate-bounce">
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/75 flex flex-col items-center gap-1 animate-bounce">
       <span class="text-[10px] font-display tracking-widest uppercase">Scroll</span>
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -197,17 +216,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- セクション見出し -->
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">ABOUT US</span>
-        <h2 id="about-title" class="text-2xl sm:text-4xl font-extrabold text-forest-900 mb-6">
-          自然を敬い、山を遊び尽くすコミュニティ
+        <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">ABOUT HASHITTARE</span>
+        <h2 id="about-title" class="text-2xl sm:text-4xl font-black text-forest-900 mb-6">
+          初心者からレース完走志向まで、信州の山を遊び尽くす！
         </h2>
         <p id="about-description" class="text-gray-600 text-base sm:text-lg leading-relaxed">
-          当クラブは「一人で山に入るのは少し不安」「同じ趣味の仲間と情報交換したい」というランナーが集まる社会人中心のトレイルランクラブです。タイムや順位だけでなく、山の自然や下山後の温泉・グルメまで含めて楽しむスタイルを大切にしています。
+          「トレランクラブ【走ったれ】」は、長野県北信・中信・東信エリアや北アルプス周辺、長野市の里山をフィールドに活動するトレイルランニングクラブです。和気あいあいと絶景や下山後のトレイルグルメを楽しむスタイルから、レース完走を目指すステップアップまで、それぞれのペースで山を楽しんでいます。
         </p>
       </div>
 
-      <!-- クラブ活動データ（数字で見るクラブ） -->
-      <div id="stats-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16">
+      <!-- クラブ活動スタイル（4つの柱） -->
+      <div id="stats-container" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
         <!-- JSで動的に描画 -->
       </div>
 
@@ -219,23 +238,25 @@
   </section>
 
   <!-- =====================================================================
-       4. 今後のイベント・練習会日程 (Upcoming Schedule)
+       4. 活動スケジュール・定番練習コース (Schedule & Regular Sessions)
   ====================================================================== -->
-  <section id="schedule" class="py-20 sm:py-28 bg-forest-100/60 border-y border-gray-200/80">
+  <section id="schedule" class="py-20 sm:py-28 bg-forest-100/70 border-y border-gray-200/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">UPCOMING EVENTS</span>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-forest-900">
-            今後の練習会・イベント日程
+          <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">SCHEDULE & SESSIONS</span>
+          <h2 class="text-2xl sm:text-4xl font-black text-forest-900">
+            定期練習・イベントスケジュール
           </h2>
+          <p class="text-sm sm:text-base text-gray-600 mt-2">
+            参加費はすべての回で<strong>「山に対する熱い気持ち（0円）」</strong>！まずはお気軽にご参加ください。
+          </p>
         </div>
         <!-- レベルフィルター -->
         <div class="flex flex-wrap gap-2" id="level-filters">
           <button data-filter="ALL" class="filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-forest-900 text-white transition-colors">すべて</button>
           <button data-filter="初級" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-colors">初級（初心者歓迎）</button>
-          <button data-filter="中級" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-colors">中級</button>
-          <button data-filter="上級" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-colors">上級・ロング</button>
+          <button data-filter="中級" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-colors">中級・ステップアップ</button>
         </div>
       </div>
 
@@ -247,17 +268,53 @@
   </section>
 
   <!-- =====================================================================
-       5. 活動フィールド・コース紹介 (Trail Courses & Gallery)
+       5. 必須装備・持ち物チェックリスト (Essential Gear Checklist)
   ====================================================================== -->
-  <section id="courses" class="py-20 sm:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">TRAIL FIELDS</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-forest-900 mb-4">
-          主な活動フィールド・定番コース
+  <section id="gear" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">REQUIRED GEAR</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-forest-900 mb-4">
+          必須装備・持ち物チェックリスト
         </h2>
         <p class="text-gray-600 text-base sm:text-lg">
-          四季折々の表情を見せる里山から標高2,000m級の稜線まで、レベルや季節に合わせて多彩なトレイルを走っています。
+          安全に楽しく山を走るための必須アイテムです。参加前の準備チェックにご活用ください（タップでチェックできます）。
+        </p>
+      </div>
+
+      <!-- 進捗バー -->
+      <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 border border-gray-200/80 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-forest-900 text-white flex items-center justify-center font-display font-bold text-sm" id="gear-progress-text">0/6</span>
+          <div>
+            <p class="font-bold text-forest-900 text-sm sm:text-base">出発前の装備チェック状況</p>
+            <p id="gear-progress-msg" class="text-xs text-gray-500">項目をタップして準備を確認しよう！</p>
+          </div>
+        </div>
+        <button onclick="resetGearChecks()" class="text-xs font-bold text-gray-500 hover:text-accent underline">
+          チェックをリセット
+        </button>
+      </div>
+
+      <!-- チェックリストグリッド -->
+      <div id="gear-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- JSで動的に描画 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       6. 活動フィールド・コース紹介 (Trail Fields & Gallery)
+  ====================================================================== -->
+  <section id="courses" class="py-20 sm:py-28 bg-gray-50 border-t border-gray-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">ACTIVITY FIELDS</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-forest-900 mb-4">
+          主な活動エリア・フィールド紹介
+        </h2>
+        <p class="text-gray-600 text-base sm:text-lg">
+          朝の犀川河川敷から長野市周辺の里山、そして北アルプスや信州各地の絶景トレイルまで幅広く活動しています。
         </p>
       </div>
 
@@ -269,43 +326,43 @@
   </section>
 
   <!-- =====================================================================
-       6. 参加の流れ & よくある質問 (Flow & FAQ)
+       7. 参加の流れ & よくある質問 (Flow & FAQ)
   ====================================================================== -->
-  <section id="faq" class="py-20 sm:py-28 bg-gray-50 border-t border-gray-200/80">
+  <section id="faq" class="py-20 sm:py-28 bg-white border-t border-gray-200/80">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- 参加までの3ステップ -->
       <div class="mb-24">
         <div class="text-center mb-12">
           <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">HOW TO JOIN</span>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-forest-900">
-            初回体験参加までの3ステップ
+          <h2 class="text-2xl sm:text-4xl font-black text-forest-900">
+            初回参加までの3ステップ
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Step 1 -->
-          <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+          <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
             <div class="w-12 h-12 rounded-xl bg-forest-900 text-white font-display font-extrabold text-xl flex items-center justify-center mb-5">01</div>
-            <h3 class="text-lg font-bold text-forest-900 mb-2">スケジュールを確認</h3>
+            <h3 class="text-lg font-bold text-forest-900 mb-2">練習・イベントを選ぶ</h3>
             <p class="text-sm text-gray-600 leading-relaxed">
-              まずは「イベント日程」から、ご自身の走力や都合に合う練習会（まずは「初級」マークの回がおすすめ！）を探します。
+              「土曜・日曜朝6時の犀川河川敷ラン」または「月1〜2回の里山・山岳トレイル」から、参加したい回を選びます。
             </p>
           </div>
           <!-- Step 2 -->
-          <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+          <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
             <div class="w-12 h-12 rounded-xl bg-forest-900 text-white font-display font-extrabold text-xl flex items-center justify-center mb-5">02</div>
-            <h3 class="text-lg font-bold text-forest-900 mb-2">フォームから体験申込</h3>
+            <h3 class="text-lg font-bold text-forest-900 mb-2">装備を整えて参加連絡</h3>
             <p class="text-sm text-gray-600 leading-relaxed">
-              参加希望のイベントを選択してエントリー連絡を送ってください。装備のレンタル相談や質問も受け付けています。
+              必須装備（シューズ・ザック・水分1L以上・レインウェア・熊鈴）と「楽しむ気持ち」を用意して、フォームまたはSNSからご連絡ください。
             </p>
           </div>
           <!-- Step 3 -->
-          <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+          <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
             <div class="w-12 h-12 rounded-xl bg-accent text-white font-display font-extrabold text-xl flex items-center justify-center mb-5">03</div>
-            <h3 class="text-lg font-bold text-forest-900 mb-2">当日集合＆トレイルラン！</h3>
+            <h3 class="text-lg font-bold text-forest-900 mb-2">集合して一緒に走ったれ！</h3>
             <p class="text-sm text-gray-600 leading-relaxed">
-              指定の駅や登山口に集合。ブリーフィングと準備運動のあと、グループに分かれて安全にトレイルを楽しみましょう！
+              集合場所で挨拶とコース確認をしたらいざスタート！自分のペースを大切に、信州の自然と仲間との時間を満喫しましょう。
             </p>
           </div>
         </div>
@@ -315,7 +372,7 @@
       <div>
         <div class="text-center mb-12">
           <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-2">FAQ</span>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-forest-900">
+          <h2 class="text-2xl sm:text-4xl font-black text-forest-900">
             よくある質問
           </h2>
         </div>
@@ -329,16 +386,16 @@
   </section>
 
   <!-- =====================================================================
-       7. お問い合わせ・エントリーCTA & フッター (Contact & Footer)
+       8. お問い合わせ・エントリーCTA & フッター (Contact & Footer)
   ====================================================================== -->
   <section id="contact" class="py-20 sm:py-24 topo-pattern text-white relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-3">JOIN THE TRAIL</span>
+      <span class="font-display font-bold text-accent text-sm tracking-widest uppercase block mb-3">JOIN US</span>
       <h2 class="text-3xl sm:text-5xl font-black mb-6 leading-tight">
-        さあ、次の週末は山へ行こう。
+        山に対する熱い気持ちを持って、<br class="hidden sm:inline">一緒に走ったれ！
       </h2>
-      <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-        体験参加のお申し込み、クラブへのご質問、合同練習のご相談など、お気軽にお問い合わせください。SNSのDMからも受け付けています！
+      <p class="text-gray-200 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+        初参加のご連絡、次回開催日の確認、質問など、いつでもお気軽にメッセージをお送りください。初心者の方も大歓迎でお待ちしています！
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -357,13 +414,13 @@
     </div>
   </section>
 
-  <footer class="bg-forest-900 text-gray-400 py-10 border-t border-white/10 text-sm">
+  <footer class="bg-forest-900 text-gray-300 py-10 border-t border-white/10 text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <span id="footer-club-name" class="font-display font-bold text-white tracking-wider">SHINSHU PEAK RUNNERS</span>
+        <span id="footer-club-name" class="font-sans font-black text-white tracking-wide">トレランクラブ【走ったれ】</span>
       </div>
       <p id="footer-copyright" class="text-xs text-gray-400 text-center sm:text-right">
-        &copy; 2026 SHINSHU PEAK RUNNERS. All Rights Reserved.
+        &copy; 2026 トレランクラブ【走ったれ】 All Rights Reserved.
       </p>
     </div>
   </footer>
@@ -372,7 +429,7 @@
        モーダル: イベント詳細 ＆ お問い合わせフォーム
   ====================================================================== -->
   <div id="app-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-opacity">
-    <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 p-6 sm:p-8 relative animate-[fadeIn_0.2s_ease-out]">
+    <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 p-6 sm:p-8 relative">
       <!-- 閉じるボタン -->
       <button onclick="closeModal()" aria-label="閉じる" class="absolute top-4 right-4 p-2 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -386,202 +443,185 @@
   </div>
 
   <!-- =====================================================================
-       ライブ・カスタマイザーパネル（画面右下：テーマ色や文字をブラウザで試せる機能）
-  ====================================================================== -->
-  <div class="fixed bottom-4 right-4 z-40">
-    <!-- トグルボタン -->
-    <button id="customizer-toggle" class="flex items-center gap-2 bg-forest-900 hover:bg-forest-800 text-white text-xs font-bold px-4 py-3 rounded-full shadow-2xl border border-white/20 transition-all">
-      <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-      <span>テーマ・文字テスト</span>
-    </button>
-
-    <!-- パネル本体 -->
-    <div id="customizer-panel" class="hidden mt-3 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 p-5 text-sm">
-      <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-4">
-        <h3 class="font-bold text-forest-900 flex items-center gap-1.5">
-          <span>🎨 プレビュー調整パネル</span>
-        </h3>
-        <button id="customizer-close" class="text-gray-400 hover:text-gray-600 text-xs font-bold">閉じる</button>
-      </div>
-
-      <div class="space-y-4">
-        <div>
-          <label class="block text-xs font-bold text-gray-700 mb-1">クラブ名（英語/ロゴ表記）</label>
-          <input type="text" id="preview-club-name" class="w-full px-3 py-1.5 border border-gray-300 rounded-lg text-xs focus:outline-none focus:border-accent">
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-gray-700 mb-1">メインキャッチコピー</label>
-          <input type="text" id="preview-tagline" class="w-full px-3 py-1.5 border border-gray-300 rounded-lg text-xs focus:outline-none focus:border-accent">
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-gray-700 mb-1.5">アクセントカラー</label>
-          <div class="flex items-center gap-2">
-            <button onclick="setThemeColor('#e05a2b', '#c4491e')" class="w-7 h-7 rounded-full bg-[#e05a2b] border-2 border-white shadow ring-1 ring-gray-300" title="トレイルオレンジ"></button>
-            <button onclick="setThemeColor('#16a34a', '#15803d')" class="w-7 h-7 rounded-full bg-[#16a34a] border-2 border-white shadow ring-1 ring-gray-300" title="フォレストグリーン"></button>
-            <button onclick="setThemeColor('#0284c7', '#0369a1')" class="w-7 h-7 rounded-full bg-[#0284c7] border-2 border-white shadow ring-1 ring-gray-300" title="スカイブルー"></button>
-            <button onclick="setThemeColor('#d97706', '#b45309')" class="w-7 h-7 rounded-full bg-[#d97706] border-2 border-white shadow ring-1 ring-gray-300" title="オータムアンバー"></button>
-            <input type="color" id="preview-color-picker" value="#e05a2b" class="w-7 h-7 rounded cursor-pointer border-0 p-0">
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-4 pt-3 border-t border-gray-100 bg-gray-50 -mx-5 -mb-5 p-4 rounded-b-2xl">
-        <p class="text-[11px] text-gray-500 leading-relaxed">
-          ※ここは見た目のお試し用です。本番反映するには、HTMLファイル内の <code class="bg-gray-200 px-1 rounded text-gray-800">SITE_CONFIG</code> を書き換えてGitHubにアップしてください。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- =====================================================================
        ★ カスタマイズ設定エリア (ここを編集するだけでサイト全体が変わります！)
   ====================================================================== -->
   <script>
     const SITE_CONFIG = {
       // 1. 基本情報・デザイン設定
-      clubName: "SHINSHU PEAK RUNNERS",
-      clubSubName: "TRAIL RUNNING CLUB",
-      accentColor: "#e05a2b",       // アクセントカラー（例: #e05a2b オレンジ / #16a34a グリーン / #0284c7 ブルー）
-      accentHoverColor: "#c4491e",  // ボタンホバー時の少し濃い色
+      clubName: "トレランクラブ【走ったれ】",
+      clubSubName: "SHINSHU / NAGANO TRAIL RUNNING CLUB",
+      accentColor: "#EA580C",       // パッションオレンジ
+      accentHoverColor: "#C2410C",  // ホバー時の濃いオレンジ
 
       // 2. ヒーロー（トップ画面）設定
       hero: {
-        badgeText: "2026年シーズン 新規メンバー・体験参加者募集中！",
-        tagline: "アスファルトを飛び出し、<br class='hidden sm:inline'>まだ見ぬ稜線へ。",
-        subTagline: "週末の朝、澄んだ空気と絶景を求めて山を駆けるトレイルランニングクラブ。<br class='hidden sm:inline'>初心者向けのファンランからロングレース対策まで、仲間と一緒に楽しもう。",
-        // Unsplash等の高画質画像URL、またはGitHubリポジトリ内の './images/hero.jpg' に変更可能
-        imageUrl: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1920&q=80"
+        badgeText: "信州・長野のトレイルランクラブ｜初心者〜経験者まで大歓迎！",
+        tagline: "信州の山を、仲間と走ったれ！",
+        subTagline: "長野県（北信・中信・東信・北アルプス周辺・長野市里山）を中心に活動中。<br class='hidden sm:inline'>週末朝6時の犀川河川敷ランから、絶景・トレイルグルメ・レース完走まで和気あいあいと楽しもう！",
+        // 画像を変更したい場合は、GitHubリポジトリ内の画像パス（例: "./images/hero.jpg"）またはURLを指定
+        imageUrl: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1920&q=80",
+        activityAreas: [
+          "長野県北信・中信・東信",
+          "北アルプス周辺",
+          "長野市里山",
+          "犀川河川敷（朝6:00〜）"
+        ]
       },
 
-      // 3. クラブ紹介・活動実績データ
+      // 3. クラブ紹介・活動スタイル
       about: {
-        title: "自然を敬い、山を遊び尽くすコミュニティ",
-        description: "当クラブは「一人で山に入るのは少し不安」「同じ趣味の仲間と情報交換したい」というランナーが集まる社会人中心のトレイルランクラブです。タイムや順位だけでなく、山の自然や下山後の温泉・グルメまで含めて楽しむスタイルを大切にしています。",
+        title: "初心者からレース完走志向まで、信州の山を遊び尽くす！",
+        description: "「トレランクラブ【走ったれ】」は、長野県北信・中信・東信エリアや北アルプス周辺、長野市の里山をフィールドに活動するトレイルランニングクラブです。和気あいあいと絶景や下山後のトレイルグルメを楽しむスタイルから、レース完走を目指すステップアップまで、それぞれのペースで山を楽しんでいます。",
         stats: [
-          { label: "在籍メンバー数", value: "68", unit: "名" },
-          { label: "月間イベント開催", value: "4", unit: "回" },
-          { label: "初心者からの参加率", value: "65", unit: "%" },
-          { label: "平均年齢層", value: "20-50", unit: "代" }
+          { label: "登山・トレイルラン", value: "月1〜2", unit: "回" },
+          { label: "犀川河川敷 朝練", value: "土日 6:00", unit: "〜" },
+          { label: "クラブ参加費", value: "熱い気持ち", unit: "（0円）" },
+          { label: "活動エリア", value: "北信・中信・東信", unit: "" }
         ],
         features: [
           {
-            title: "初心者・ロード出身者大歓迎",
-            description: "「トレランは初めて」という方向けの体験会を毎月開催。登りは無理せず歩き、装備の選び方や下りの走り方も経験者が丁寧にレクチャーします。",
+            title: "初心者〜中級者中心で和気あいあい",
+            description: "「トレランを始めたいけれど一人では不安」「ロード10km走れるようになったので山に挑戦したい」という方大歓迎！急な登りは無理せず歩き、みんなで声を掛け合いながら進みます。",
             icon: "heart"
           },
           {
-            title: "安全第一と山のマナー遵守",
-            description: "ハイカーさんへの挨拶や追い越し時の歩行徹底など、山岳マナーを重視。グループごとにリーダーが付き、無理のないペース配分で安全に活動します。",
-            icon: "shield"
+            title: "絶景・トレイルグルメも全力で楽しむ",
+            description: "信州ならではのパノラマ稜線や四季の里山を満喫したあとは、下山後の温泉や地元グルメも大切な楽しみのひとつ。レース完走を目指すメンバーへの刺激や情報交換も盛んです。",
+            icon: "mountain"
           },
           {
-            title: "大会挑戦からファンランまで",
-            description: "ショートレース完走を目指す方から、100km超のウルトラトレイル完走を目指す猛者まで幅広く在籍。目標に合わせた練習仲間が見つかります。",
-            icon: "mountain"
+            title: "週末朝6時の犀川河川敷ランニング練習",
+            description: "月1〜2回の山行に加えて、土曜または日曜の朝6時から長野市・犀川河川敷で基礎体力づくりのランニング練習を実施。朝活で爽やかに一日をスタートできます！",
+            icon: "shield"
           }
         ]
       },
 
-      // 4. 今後のイベント・練習会スケジュール（配列に追加・削除するだけで自動反映）
+      // 4. 定期練習・定番コース＆スケジュール（日程が決まったら日付を書き換えて更新できます）
       events: [
         {
-          id: "evt-1",
-          date: "2026.11.29 (日)",
-          time: "08:00 - 12:30",
-          title: "【初心者歓迎】晩秋の里山ゆるトレイル＆絶景カフェラン",
-          location: "飯綱高原・大座法師池 駐車場集合",
-          distance: "約12km / 累積標高 D+550m",
+          id: "evt-saigawa",
+          date: "毎週 土曜または日曜",
+          time: "朝 06:00 〜（約1〜1.5時間）",
+          title: "【週末朝の定番練】犀川河川敷モーニングランニング練習",
+          location: "長野市・犀川河川敷コース（詳細はお問い合わせ時に案内）",
+          distance: "約8〜12km / フラット・ロード中心",
           level: "初級",
-          fee: "500円（保険・運営費）",
-          capacity: "残り4名 / 定員15名",
-          description: "落ち葉を踏みしめながら走る気持ちの良い里山コースです。急な登りはすべて歩きますので、ロードで5km〜10km走れる方ならどなたでも参加可能です！下山後は近くのカフェでコーヒータイムを予定しています。",
-          entryUrl: "" // GoogleフォームのURLを入れれば直接飛びます。空欄ならサイト内の申込モーダルが開きます。
+          fee: "山に対する熱い気持ち（0円）",
+          capacity: "随時参加OK（ドタ参・早抜け相談可）",
+          description: "土曜または日曜の朝6時から犀川河川敷で行う基礎ランニング練習会です。山を楽しく走るための脚づくりや、週末の朝活に最適！それぞれのペースに合わせて走るので、トレラン未経験の方やまずは雰囲気を知りたい方の初回参加にもぴったりです。",
+          entryUrl: "" // GoogleフォームURLがあれば入力（空欄なら内蔵フォームが開きます）
         },
         {
-          id: "evt-2",
-          date: "2026.12.06 (日)",
-          time: "07:30 - 14:00",
-          title: "冬支度の稜線サーキット・ミドル練習会",
-          location: "戸隠エリア（詳細は参加者に案内）",
-          distance: "約22km / 累積標高 D+1,250m",
-          level: "中級",
-          fee: "500円（保険・運営費）",
-          capacity: "募集中 / 定員12名",
-          description: "アップダウンの連続するテクニカルなトレイルを繋ぐミドルディスタンス練習会。春のミドルレース（30〜50kmクラス）完走を目指す方におすすめです。防寒着・レインウェア必携。",
+          id: "evt-satoyama",
+          date: "月1〜2回（土日祝 開催）",
+          time: "午前スタート（約3〜4時間）",
+          title: "【定番里山コース例】長野市里山・絶景トレイルラン",
+          location: "長野市里山エリア（地附山・大峰山〜葛山周辺など）",
+          distance: "約12km / 累積標高 約700m",
+          level: "初級",
+          fee: "山に対する熱い気持ち（0円）",
+          capacity: "初参加・初心者大歓迎",
+          description: "ロードで10km走れる方ならOKの入門〜初級向けトレイルコース例です。木漏れ日の気持ちいいシングルトラックや長野盆地を見渡す展望スポットを巡ります。登りは歩きを交えて和気あいあいと進行します！",
           entryUrl: ""
         },
         {
-          id: "evt-3",
-          date: "2026.12.20 (日)",
-          time: "06:30 - 15:30",
-          title: "年末恒例！煩悩打破ロングトレイル35K",
-          location: "聖高原〜冠着山縦走ルート",
-          distance: "約35km / 累積標高 D+2,100m",
-          level: "上級",
-          fee: "1,000円（エイド補給食・保険込）",
-          capacity: "募集中 / 定員10名",
-          description: "一年の締めくくりにタフな縦走路を駆け抜けるロングセッション。途中の峠にサポートカーを配置し、温かいスープと補給食を用意します。一定の走力・装備基準があります。",
+          id: "evt-alps",
+          date: "月1〜2回（北信・中信・東信遠征）",
+          time: "早朝〜午後（コースにより変動）",
+          title: "【ステップアップコース例】北アルプス周辺・信州山岳トレイル",
+          location: "北アルプス周辺・北信・中信・東信の山域",
+          distance: "約18〜25km / 累積標高 1,200m〜",
+          level: "中級",
+          fee: "山に対する熱い気持ち（0円）",
+          capacity: "ステップアップ・レース完走志向向け",
+          description: "北アルプス山麓や信州各地の名峰エリアへ足を延ばす本格トレイルセッション例です。ダイナミックな絶景稜線を駆け抜け、下山後にはご当地のトレイルグルメや温泉も堪能します。",
           entryUrl: ""
         }
       ],
 
-      // 5. 活動コース・フォトギャラリー
-      gallery: [
+      // 5. 必須装備・持ち物チェックリスト
+      gear: [
         {
-          courseName: "北信濃パノラマ稜線トレイル",
-          area: "長野北部エリア",
-          specs: "18km / D+950m",
-          level: "中級",
-          imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+          name: "トレランシューズ",
+          note: "不整地・木の根・岩場でもしっかりグリップする専用シューズ"
         },
         {
-          courseName: "ブナの原生林・森林浴コース",
-          area: "飯綱・戸隠エリア",
-          specs: "10km / D+420m",
+          name: "トレランザック",
+          note: "水分・補給食・レインウェアが無理なく収まるランニングパック"
+        },
+        {
+          name: "水分 1L以上",
+          note: "ソフトフラスクやハイドレーション、ペットボトル等で1L以上確保"
+        },
+        {
+          name: "レインウェア",
+          note: "山の急な天候変化や稜線の冷え込みに備える必須の防風・防水着"
+        },
+        {
+          name: "熊鈴",
+          note: "長野の里山・山岳エリアを安全に走るための重要な安全対策アイテム"
+        },
+        {
+          name: "楽しむ気持ち",
+          note: "これが一番大切！自然と仲間との時間を全力で楽しむ熱い気持ち"
+        }
+      ],
+
+      // 6. 活動フィールド・フォトギャラリー
+      gallery: [
+        {
+          courseName: "長野市里山トレイルエリア",
+          area: "長野市周辺（地附山・大峰山・葛山など）",
+          specs: "約12km / 累積標高 D+700m",
           level: "初級",
           imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
         },
         {
-          courseName: "アルプス展望スカイライン",
-          area: "白馬・小谷エリア",
-          specs: "28km / D+1,800m",
-          level: "上級",
-          imageUrl: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=800&q=80"
+          courseName: "北アルプス周辺・信州山岳エリア",
+          area: "北信・中信・東信の山域",
+          specs: "約18〜25km / 絶景＆グルメ",
+          level: "中級",
+          imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          courseName: "犀川河川敷モーニングコース",
+          area: "長野市・犀川河川敷",
+          specs: "土曜・日曜 朝6:00〜 基礎練",
+          level: "初級",
+          imageUrl: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=800&q=80"
         }
       ],
 
-      // 6. よくある質問 (FAQ)
+      // 7. よくある質問 (FAQ)
       faq: [
         {
-          question: "トレイルランニングは全くの未経験ですが参加できますか？",
-          answer: "はい、大歓迎です！現在のメンバーの半数以上がロードランニングや登山未経験からスタートしています。まずは「初級」マークの付いた体験会・ゆるランイベントにご参加ください。舗装路で10km程度を無理なく走れる体力があれば十分楽しめます。"
+          question: "トレイルランニング初心者ですが参加できますか？",
+          answer: "はい、大歓迎です！当クラブは初心者〜中級者が中心で、ロードで10km程度走れる方なら無理なく楽しめる里山コース（約12km・累積標高700m目安）も開催しています。急な登りはみんなで歩いて進みますので安心してご参加ください。"
         },
         {
-          question: "最初から専用のシューズやザックを揃える必要がありますか？",
-          answer: "初回体験時は、履き慣れたランニングシューズと動きやすいウェア、飲み物（500ml〜1L）が入るリュックがあれば参加可能です（※ただし泥道や岩場では滑りやすいため、継続される場合はトレイルラン専用シューズの購入をおすすめしています）。"
+          question: "参加費は本当に無料ですか？",
+          answer: "はい、クラブとしての参加費は「山に対する熱い気持ち（0円）」です！ただし、集合場所までの交通費（乗り合い時のガソリン代等）や、下山後の温泉代・トレイルグルメ代などは各自実費となります。"
         },
         {
-          question: "入会金や年会費はかかりますか？",
-          answer: "入会金・年会費は無料です。練習会やイベントに参加する際のみ、レクリエーション保険料や運営実費として1回あたり500円〜1,000円程度を集金しています。毎回参加できなくても全く問題ありません。"
+          question: "土曜・日曜朝6時からの犀川河川敷の練習だけの参加でも大丈夫ですか？",
+          answer: "もちろん大歓迎です！まずは週末朝の犀川河川敷ランニング練習に顔を出していただき、メンバーと走力や雰囲気を合わせてから里山・山岳トレイルへステップアップされる方もたくさんいます。"
         },
         {
-          question: "雨天の場合は中止になりますか？",
-          answer: "小雨程度であれば安全に配慮して開催しますが、荒天（大雨・強風・雷注意報など）が予想される場合は、前日の18時までに参加者へ中止・コース変更のご連絡をいたします。"
+          question: "持ち物・必須装備について教えてください。",
+          answer: "トレイルラン参加時は「トレランシューズ・ザック・水分1L以上・レインウェア・熊鈴・楽しむ気持ち」が必須装備となります。犀川河川敷のロード練習時は通常のランニングシューズと飲み物でOKです。また、山行時は各自での山岳保険・スポーツ保険への加入を推奨しています。"
         }
       ],
 
-      // 7. SNS・連絡先・フッター設定
+      // 8. SNS・連絡先・フッター設定（実際のアカウントURLやGoogleフォームURLに書き換えてお使いください）
       social: {
         instagram: "https://instagram.com/",
-        strava: "https://www.strava.com/",
-        x: "https://x.com/"
+        x: "https://x.com/",
+        strava: "" // StravaクラブのURLがあれば入力（空欄なら非表示）
       },
-      // Googleフォーム等の外部URLを設定したい場合はここに入力（空欄の場合は内蔵のデモフォームが動きます）
+      // GoogleフォームのURLを設定すると、申込ボタンから直接Googleフォームが開きます
       googleFormUrl: "",
-      copyright: "© 2026 SHINSHU PEAK RUNNERS. All Rights Reserved."
+      copyright: "© 2026 トレランクラブ【走ったれ】 All Rights Reserved."
     };
   </script>
 
@@ -592,7 +632,7 @@
     // アイコンSVG定義
     const ICONS = {
       heart: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>`,
-      shield: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+      shield: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
       mountain: `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20h18L14 6l-4 7-3-4-4 11z" /></svg>`
     };
 
@@ -600,8 +640,6 @@
     function setThemeColor(hex, hoverHex) {
       document.documentElement.style.setProperty('--theme-accent', hex);
       document.documentElement.style.setProperty('--theme-accent-hover', hoverHex || hex);
-      const picker = document.getElementById('preview-color-picker');
-      if (picker) picker.value = hex;
     }
 
     // レベルバッジの色分け
@@ -609,18 +647,16 @@
       switch(level) {
         case '初級': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
         case '中級': return 'bg-amber-100 text-amber-800 border-amber-200';
-        case '上級': return 'bg-rose-100 text-rose-800 border-rose-200';
         default: return 'bg-gray-100 text-gray-800 border-gray-200';
       }
     }
 
     // 初期レンダリング処理
     function initSite() {
-      // カラー設定
       setThemeColor(SITE_CONFIG.accentColor, SITE_CONFIG.accentHoverColor);
 
       // ナビ・フッターテキスト
-      document.title = `${SITE_CONFIG.clubName} | トレイルランニングクラブ`;
+      document.title = `${SITE_CONFIG.clubName} | 長野県トレイルランニングクラブ`;
       document.getElementById('nav-club-name').textContent = SITE_CONFIG.clubName;
       document.getElementById('nav-club-sub').textContent = SITE_CONFIG.clubSubName;
       document.getElementById('footer-club-name').textContent = SITE_CONFIG.clubName;
@@ -632,18 +668,27 @@
       document.getElementById('hero-subtagline').innerHTML = SITE_CONFIG.hero.subTagline;
       document.getElementById('hero-bg-img').src = SITE_CONFIG.hero.imageUrl;
 
+      // 活動エリアバッジ
+      const areasContainer = document.getElementById('hero-areas');
+      areasContainer.innerHTML = SITE_CONFIG.hero.activityAreas.map(area => `
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/40 backdrop-blur-sm border border-white/20 text-xs sm:text-sm font-bold text-white">
+          <svg class="w-3.5 h-3.5 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
+          ${area}
+        </span>
+      `).join('');
+
       // Aboutセクション
       document.getElementById('about-title').textContent = SITE_CONFIG.about.title;
       document.getElementById('about-description').textContent = SITE_CONFIG.about.description;
 
-      // 活動データ描画
+      // 活動スタイル4カード描画
       const statsContainer = document.getElementById('stats-container');
       statsContainer.innerHTML = SITE_CONFIG.about.stats.map(stat => `
-        <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100">
-          <div class="font-display font-extrabold text-3xl sm:text-4xl text-forest-900 mb-1">
-            ${stat.value}<span class="text-base sm:text-lg font-bold text-accent ml-1">${stat.unit}</span>
+        <div class="bg-forest-100/60 rounded-2xl p-5 sm:p-6 text-center border border-forest-900/10">
+          <div class="text-xs sm:text-sm font-bold text-forest-700 mb-1.5">${stat.label}</div>
+          <div class="font-sans font-black text-xl sm:text-2xl text-forest-900">
+            ${stat.value}<span class="text-sm sm:text-base font-bold text-accent ml-0.5">${stat.unit}</span>
           </div>
-          <div class="text-xs sm:text-sm font-medium text-gray-500">${stat.label}</div>
         </div>
       `).join('');
 
@@ -651,7 +696,7 @@
       const featuresContainer = document.getElementById('features-container');
       featuresContainer.innerHTML = SITE_CONFIG.about.features.map(feat => `
         <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-          <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center mb-6">
+          <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-900 flex items-center justify-center mb-6">
             ${ICONS[feat.icon] || ICONS.mountain}
           </div>
           <h3 class="text-xl font-bold text-forest-900 mb-3">${feat.title}</h3>
@@ -662,13 +707,16 @@
       // イベント一覧描画
       renderEvents('ALL');
 
+      // 必須装備チェックリスト描画
+      renderGear();
+
       // ギャラリー描画
       const galleryContainer = document.getElementById('gallery-container');
       galleryContainer.innerHTML = SITE_CONFIG.gallery.map(item => `
         <div class="group relative rounded-2xl overflow-hidden shadow-md bg-forest-900 aspect-[4/3]">
           <img src="${item.imageUrl}" 
                alt="${item.courseName}" 
-               onerror="this.src='https://placehold.co/800x600/1c3527/ffffff?text=TRAIL+COURSE'"
+               onerror="this.src='https://placehold.co/800x600/1B4332/ffffff?text=TRAIL+FIELD'"
                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100">
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
           <div class="absolute top-4 left-4">
@@ -678,11 +726,11 @@
           </div>
           <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
             <p class="text-xs text-gray-300 font-medium mb-1 flex items-center gap-1">
-              <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
+              <svg class="w-3.5 h-3.5 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
               ${item.area}
             </p>
             <h3 class="text-lg sm:text-xl font-bold mb-1">${item.courseName}</h3>
-            <p class="font-display text-xs sm:text-sm text-accent font-bold">${item.specs}</p>
+            <p class="text-xs sm:text-sm text-orange-300 font-bold">${item.specs}</p>
           </div>
         </div>
       `).join('');
@@ -690,8 +738,8 @@
       // FAQ描画
       const faqContainer = document.getElementById('faq-container');
       faqContainer.innerHTML = SITE_CONFIG.faq.map((item, idx) => `
-        <div class="bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(${idx})" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors focus:outline-none">
+        <div class="bg-gray-50 rounded-2xl border border-gray-200/80 overflow-hidden">
+          <button onclick="toggleFaq(${idx})" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-gray-100/70 transition-colors focus:outline-none">
             <span class="font-bold text-forest-900 text-sm sm:text-base flex items-start gap-3">
               <span class="font-display font-extrabold text-accent">Q.</span>
               <span>${item.question}</span>
@@ -700,7 +748,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div id="faq-answer-${idx}" class="hidden px-6 pb-5 pt-1 text-sm sm:text-base text-gray-600 leading-relaxed border-t border-gray-100 bg-gray-50/50">
+          <div id="faq-answer-${idx}" class="hidden px-6 pb-5 pt-2 text-sm sm:text-base text-gray-600 leading-relaxed border-t border-gray-200/60 bg-white">
             <div class="flex items-start gap-3">
               <span class="font-display font-extrabold text-forest-700">A.</span>
               <p>${item.answer}</p>
@@ -713,18 +761,57 @@
       const socialContainer = document.getElementById('social-links-container');
       const socials = [
         { name: 'Instagram', url: SITE_CONFIG.social.instagram, icon: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>` },
-        { name: 'Strava', url: SITE_CONFIG.social.strava, icon: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>` },
-        { name: 'X (Twitter)', url: SITE_CONFIG.social.x, icon: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>` }
+        { name: 'X (Twitter)', url: SITE_CONFIG.social.x, icon: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>` },
+        { name: 'Strava', url: SITE_CONFIG.social.strava, icon: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>` }
       ];
       socialContainer.innerHTML = socials.filter(s => s.url).map(s => `
         <a href="${s.url}" target="_blank" rel="noopener noreferrer" aria-label="${s.name}" class="w-11 h-11 rounded-full bg-white/10 hover:bg-accent text-white flex items-center justify-center transition-colors border border-white/15">
           ${s.icon}
         </a>
       `).join('');
+    }
 
-      // ライブカスタマイザーの初期値セット
-      document.getElementById('preview-club-name').value = SITE_CONFIG.clubName;
-      document.getElementById('preview-tagline').value = SITE_CONFIG.hero.tagline.replace(/<br[^>]*>/gi, ' ');
+    // 必須装備チェックリスト描画
+    function renderGear() {
+      const container = document.getElementById('gear-container');
+      container.innerHTML = SITE_CONFIG.gear.map((item, idx) => `
+        <label class="cursor-pointer block select-none">
+          <input type="checkbox" class="gear-checkbox sr-only" onchange="updateGearProgress()">
+          <div class="p-5 rounded-2xl border-2 border-gray-200 bg-white hover:border-gray-300 transition-all flex items-start gap-4 h-full">
+            <div class="gear-check-icon w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center shrink-0 mt-0.5 transition-colors text-transparent">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-forest-900 text-base sm:text-lg">${item.name}</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">${item.note}</p>
+            </div>
+          </div>
+        </label>
+      `).join('');
+      updateGearProgress();
+    }
+
+    function updateGearProgress() {
+      const checkboxes = document.querySelectorAll('.gear-checkbox');
+      const total = checkboxes.length;
+      const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+      document.getElementById('gear-progress-text').textContent = `${checked}/${total}`;
+      
+      const msgEl = document.getElementById('gear-progress-msg');
+      if (checked === 0) {
+        msgEl.textContent = '項目をタップして準備を確認しよう！';
+      } else if (checked < total) {
+        msgEl.textContent = `あと ${total - checked} 項目で準備完了です！`;
+      } else {
+        msgEl.innerHTML = '<span class="text-accent font-bold">準備万端！さあ、信州の山へ走ったれ！</span>';
+      }
+    }
+
+    function resetGearChecks() {
+      document.querySelectorAll('.gear-checkbox').forEach(cb => cb.checked = false);
+      updateGearProgress();
     }
 
     // イベントリスト描画（フィルター対応）
@@ -743,14 +830,14 @@
         <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all border border-gray-200/80 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div class="space-y-3 flex-1">
             <div class="flex flex-wrap items-center gap-2.5">
-              <span class="font-display font-extrabold text-base sm:text-lg text-forest-900 bg-forest-100 px-3.5 py-1 rounded-lg">
+              <span class="font-sans font-extrabold text-sm sm:text-base text-forest-900 bg-forest-100 px-3.5 py-1 rounded-lg">
                 ${evt.date}
               </span>
               <span class="px-3 py-1 rounded-full text-xs font-bold border ${getLevelBadgeClass(evt.level)}">
                 ${evt.level}
               </span>
-              <span class="text-xs font-semibold text-gray-500">
-                ${evt.capacity}
+              <span class="text-xs font-bold text-accent bg-orange-50 px-2.5 py-1 rounded-md border border-orange-200/70">
+                参加費：${evt.fee}
               </span>
             </div>
 
@@ -772,7 +859,7 @@
 
           <div class="flex sm:items-center gap-3 pt-4 lg:pt-0 border-t lg:border-t-0 border-gray-100 shrink-0">
             <button onclick="openEventModal('${evt.id}')" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-forest-900 hover:bg-accent text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
-              <span>詳細・エントリー</span>
+              <span>詳細・参加連絡</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
@@ -801,38 +888,38 @@
       if (!evt) return;
 
       const entryAction = evt.entryUrl 
-        ? `<a href="${evt.entryUrl}" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-white font-bold shadow-lg transition-colors">外部エントリーフォームへ進む</a>`
-        : `<button onclick="openContactModal('${evt.date} ${evt.title} への参加希望')" class="w-full py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-white font-bold shadow-lg transition-colors">このイベントに体験参加を申し込む</button>`;
+        ? `<a href="${evt.entryUrl}" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-white font-bold shadow-lg transition-colors">参加申し込みフォームへ進む</a>`
+        : `<button onclick="openContactModal('${evt.title} への参加希望')" class="w-full py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-white font-bold shadow-lg transition-colors">この活動への参加を連絡する</button>`;
 
       document.getElementById('modal-content').innerHTML = `
         <div class="space-y-4">
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 rounded-full text-xs font-bold border ${getLevelBadgeClass(evt.level)}">${evt.level}</span>
-            <span class="text-sm font-bold text-forest-800">${evt.date} (${evt.time})</span>
+            <span class="text-sm font-bold text-forest-800">${evt.date}（${evt.time}）</span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-forest-900 leading-snug">${evt.title}</h3>
           
-          <div class="bg-gray-50 rounded-xl p-4 space-y-2 text-sm border border-gray-100">
-            <div class="flex justify-between border-b border-gray-200/70 pb-2">
-              <span class="text-gray-500">集合場所</span>
+          <div class="bg-gray-50 rounded-xl p-4 space-y-2.5 text-sm border border-gray-100">
+            <div class="flex justify-between gap-4 border-b border-gray-200/70 pb-2">
+              <span class="text-gray-500 shrink-0">活動エリア</span>
               <span class="font-bold text-gray-800 text-right">${evt.location}</span>
             </div>
-            <div class="flex justify-between border-b border-gray-200/70 pb-2">
-              <span class="text-gray-500">距離・累積標高</span>
+            <div class="flex justify-between gap-4 border-b border-gray-200/70 pb-2">
+              <span class="text-gray-500 shrink-0">距離・目安</span>
               <span class="font-bold text-gray-800 text-right">${evt.distance}</span>
             </div>
-            <div class="flex justify-between border-b border-gray-200/70 pb-2">
-              <span class="text-gray-500">参加費目安</span>
-              <span class="font-bold text-gray-800 text-right">${evt.fee}</span>
+            <div class="flex justify-between gap-4 border-b border-gray-200/70 pb-2">
+              <span class="text-gray-500 shrink-0">参加費</span>
+              <span class="font-bold text-accent text-right">${evt.fee}</span>
             </div>
-            <div class="flex justify-between">
-              <span class="text-gray-500">募集状況</span>
-              <span class="font-bold text-accent text-right">${evt.capacity}</span>
+            <div class="flex justify-between gap-4">
+              <span class="text-gray-500 shrink-0">参加対象</span>
+              <span class="font-bold text-gray-800 text-right">${evt.capacity}</span>
             </div>
           </div>
 
           <div>
-            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">イベント内容</h4>
+            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">活動内容</h4>
             <p class="text-sm text-gray-700 leading-relaxed">${evt.description}</p>
           </div>
 
@@ -856,12 +943,12 @@
           <span class="text-xs font-bold text-accent uppercase tracking-wider">CONTACT & ENTRY</span>
           <h3 class="text-xl sm:text-2xl font-extrabold text-forest-900 mt-1 mb-2">体験参加・お問い合わせ</h3>
           <p class="text-xs text-gray-500 mb-5 leading-relaxed">
-            必要事項をご入力の上、送信してください。通常2日以内に担当者より折り返しご連絡いたします。
+            必要事項をご入力の上、送信してください。次回開催日のご案内や集合詳細をお送りします！
           </p>
 
           <form id="demo-contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
             <div>
-              <label class="block text-xs font-bold text-gray-700 mb-1">お名前 <span class="text-accent">*</span></label>
+              <label class="block text-xs font-bold text-gray-700 mb-1">お名前（ニックネーム可） <span class="text-accent">*</span></label>
               <input type="text" required placeholder="例：信州 太郎" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-accent">
             </div>
             <div>
@@ -869,15 +956,15 @@
               <input type="email" required placeholder="example@email.com" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-accent">
             </div>
             <div>
-              <label class="block text-xs font-bold text-gray-700 mb-1">ご希望内容・参加希望日</label>
-              <input type="text" value="${defaultSubject}" placeholder="例：11/29の初心者体験ランに参加希望" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-accent">
+              <label class="block text-xs font-bold text-gray-700 mb-1">ご希望の活動・お問い合わせ内容</label>
+              <input type="text" value="${defaultSubject}" placeholder="例：土曜朝の犀川河川敷ランに参加してみたいです！" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-accent">
             </div>
             <div>
               <label class="block text-xs font-bold text-gray-700 mb-1">走力目安・メッセージ（任意）</label>
-              <textarea rows="3" placeholder="例：ハーフマラソン完走経験あり。トレランは初めてです！" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-accent"></textarea>
+              <textarea rows="3" placeholder="例：普段ロードで10kmほど走っています。トレラン初心者ですがよろしくお願いします！" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-accent"></textarea>
             </div>
             <button type="submit" class="w-full py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-white font-bold text-sm shadow-lg transition-colors">
-              この内容で送信する
+              熱い気持ちと一緒に送信する！
             </button>
           </form>
         </div>
@@ -885,20 +972,20 @@
       showModal();
     }
 
-    // フォーム送信デモ処理（GitHub Pages静的サイト用）
+    // フォーム送信完了画面
     function handleFormSubmit(e) {
       e.preventDefault();
       document.getElementById('modal-content').innerHTML = `
         <div class="text-center py-6 space-y-4">
-          <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+          <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <h3 class="text-xl font-extrabold text-forest-900">送信完了（プレビュー動作）</h3>
+          <h3 class="text-xl font-extrabold text-forest-900">ご連絡ありがとうございます！</h3>
           <p class="text-sm text-gray-600 leading-relaxed">
-            お問い合わせありがとうございます！<br>
-            <span class="block mt-2 p-3 bg-amber-50 text-amber-800 rounded-xl text-xs text-left border border-amber-200">
-              <strong>💡 GitHub Pages公開時のヒント：</strong><br>
-              GitHub Pagesは静的サイトのため、実際のメール受信には無料の <strong>Googleフォーム</strong> や <strong>Formspree</strong> のURLを <code>SITE_CONFIG.googleFormUrl</code> に設定するのが一番手軽でおすすめです！
+            トレランクラブ【走ったれ】へのご連絡を受け付けました。<br>
+            <span class="block mt-3 p-3 bg-amber-50 text-amber-900 rounded-xl text-xs text-left border border-amber-200">
+              <strong>💡 管理者向けメモ（実運用時の設定）：</strong><br>
+              現在このフォームは画面上の受付確認モードです。実際にメールや通知を受け取るには、無料の <strong>Googleフォーム</strong> を作成し、<code>SITE_CONFIG.googleFormUrl</code> にURLを貼り付けると自動的にGoogleフォームへ切り替わります。
             </span>
           </p>
           <button onclick="closeModal()" class="px-6 py-2.5 rounded-xl bg-forest-900 text-white text-sm font-bold">閉じる</button>
@@ -958,28 +1045,6 @@
       // モーダル背景クリックで閉じる
       document.getElementById('app-modal').addEventListener('click', (e) => {
         if (e.target.id === 'app-modal') closeModal();
-      });
-
-      // ライブカスタマイザーパネル操作
-      const custToggle = document.getElementById('customizer-toggle');
-      const custPanel = document.getElementById('customizer-panel');
-      const custClose = document.getElementById('customizer-close');
-
-      custToggle.addEventListener('click', () => custPanel.classList.toggle('hidden'));
-      custClose.addEventListener('click', () => custPanel.classList.add('hidden'));
-
-      document.getElementById('preview-club-name').addEventListener('input', (e) => {
-        const val = e.target.value || 'TRAIL CLUB';
-        document.getElementById('nav-club-name').textContent = val;
-        document.getElementById('footer-club-name').textContent = val;
-      });
-
-      document.getElementById('preview-tagline').addEventListener('input', (e) => {
-        document.getElementById('hero-tagline').textContent = e.target.value;
-      });
-
-      document.getElementById('preview-color-picker').addEventListener('input', (e) => {
-        setThemeColor(e.target.value, e.target.value);
       });
     });
   </script>
